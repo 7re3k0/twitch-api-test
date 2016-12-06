@@ -1,9 +1,9 @@
 'use strict';
 
 //Update this value to reflect your own channel name otherwise you will get images for what I am playing
-var channel = 'limbobulgaria';
+var channel = '7re3k0';
 var displayGameName = true;
-var displayStatus = true;
+var displayStatus = false;
 
 //The box art is available in various sizes, large is configured as default but uncomment one of the lines
 //below if you require medium or small, sizes in pixels follow each size just for info
