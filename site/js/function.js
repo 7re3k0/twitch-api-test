@@ -236,3 +236,58 @@ function getCurrentStatusCallback(data) {
     //We found a new game so we need to call into Twitch again to get the JSON for the game itself
 
 }
+
+
+// Timers
+var newMillis = 180000;
+var progreMills = newMillis/99;
+$(document).ready(function(){
+ var timer=1;
+ var percentageWidth = $('#progressBar').outerWidth()/100;
+  function timerRun(){
+    $('#progressBar .progress-bar').css("width", timer + "%").attr("aria-valuenow", timer);
+
+    $('#progressBar .progress-number').css("-webkit-transform", "translateX(" + percentageWidth*timer + "px)").attr("aria-valuenow", timer + '%');
+
+    if(timer >= 100){
+      $('#progressBar .progress-bar').css("width","100%");
+      return;
+    }
+    timer++;
+    setTimeout(function(){timerRun();},progreMills);
+  }
+
+  $(document).ready(function(){
+    $(this).html("loading");
+    timerRun();
+  });
+});
+
+
+function startTimer(duration, display) {
+var timer = duration, minutes, seconds;
+setInterval(function () {
+  minutes = parseInt(timer / 60, 10)
+  seconds = parseInt(timer % 60, 10);
+
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  display.text(minutes + ":" + seconds);
+  if (--timer < 0) {
+              timer = 0;
+          }
+
+}, 1000);
+}
+
+function millisToMinutes(millis) {
+var millisminutes = Math.floor(millis / 60000);
+return millisminutes;
+}
+
+var newMinutes = millisToMinutes(newMillis) * 60
+jQuery(function ($) {
+  var display = $('#timer');
+startTimer(newMinutes, display);
+});

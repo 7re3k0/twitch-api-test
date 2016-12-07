@@ -8,7 +8,6 @@ body {
   height: 1080px;
   overflow: hidden;
   background-repeat: no-repeat;
-  background-color: pink;
   background-image: url(../imgs/bg.jpg); }
 
 .boxart {
@@ -17,29 +16,37 @@ body {
   top: 648px;
   width: 100%; }
 
-.text {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-family: 'Russo One', sans-serif;
-  max-width: 970px;
-  text-align: left;
-  color: #0189E9;
-  font-size: 72px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-transform: uppercase;}
-
 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 271px;
+  height: 300px;
   position: absolute;
   top: 108px;
   left: 271px;
-  padding-left: 27px; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 1012px; }
+  .wrapper .text {
+    font-family: 'Russo One', sans-serif;
+    text-align: left;
+    color: #0189E9;
+    font-size: 70px;
+    text-transform: uppercase;
+    padding: 30px;
+    background-color: lime; }
+  .wrapper #timer {
+    position: relative;
+    left: 20px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 70px;
+    text-align: left;
+    background-color: lightblue; }

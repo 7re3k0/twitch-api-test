@@ -9,7 +9,7 @@ body
   height: 1080px
   overflow: hidden
   background-repeat: no-repeat
-  background-color: pink
+  // background-color: pink
   background-image: url(../imgs/bg.jpg)
 
 .boxart
@@ -18,22 +18,40 @@ body
   top: 648px
   width: 100%
 
-.text
-  display: flex
-  font-family: 'Russo One', sans-serif
-  max-width: 970px
-  text-align: left
-  color: #0189E9
-  font-size: 72px
-  align-items: center
-  text-transform: uppercase
-
-
-
 .wrapper
   display: flex
-  height: 271px
+  height: 300px
   position: absolute
   top: 108px
   left: 271px
-  padding-left: 27px
+  // background-color: pink
+  flex-direction: row
+  align-items: center
+  max-width: 1012px
+
+  .text
+    // display: flex
+    font-family: 'Russo One', sans-serif
+    text-align: left
+    color: #0189E9
+    font-size: 70px
+    // align-items: center
+    // align-content: flex-start
+    text-transform: uppercase
+    padding: 30px
+    background-color: lime
+
+  #timer
+    position: relative
+    left: 20px
+    // display: flex
+    font-family: 'Russo One', sans-serif
+    font-size: 70px
+    text-align: left
+    // align-content: center
+    // align-content: flex-start
+    background-color: lightblue
+
+
+  // &::after
+  //   content: "15:00"
