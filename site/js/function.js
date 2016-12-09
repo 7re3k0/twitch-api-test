@@ -1,76 +1,57 @@
 'use strict';
 
-//Update this value to reflect your own channel name otherwise you will get images for what I am playing
+//Update this value to reflect your own channel name
 var channel = '7re3k0';
-var displayGameName = true;
-var displayStatus = false;
+//Set the timer in minutes
+var setMinutes = 1
 
-//The box art is available in various sizes, large is configured as default but uncomment one of the lines
-//below if you require medium or small, sizes in pixels follow each size just for info
-
+//Box art size
 var size = 'large';//272px x 380px
-//var size = 'medium'; //136px x 190px
-//var size = 'small'; //52px x 72px
 
-//How often should we poll to check if the game has changed, default every five minutes
-var pollTimeSec = 60000;
-
+//How often should we poll to check if the game has changed
+var pollTimeSec = 60000;//1 minute
 
 //Do not change anything below this line unless you are familiar with javascript and jQuery
 //Some globals that track what urls and game we are using as well as a default image.
-
 var globalGameName;
 var globalBoxartUrl;
-var currentChannelStatus;
-
 var defaultLargeBoxArt = 'http://static-cdn.jtvnw.net/ttv-static/404_boxart-272x380.jpg';
 
 
 //This code runs when the DOM objects are initialised as defined in the jQuery documentation
-
 $(document).ready(function start() {
 
-    //First things first let's set a global default art variable , provided one is not already present, and apply it to the html
-
+    //Get default ArtBox
     if (globalBoxartUrl === null || typeof globalBoxartUrl === 'undefined') {
         globalBoxartUrl = defaultLargeBoxArt;
     }
+
     //Update the image
     updateImage(globalBoxartUrl);
-    updateChannelStatus(currentChannelStatus);
 
-    //Let's get the current game straight away and update
+    //Get the current game straight away and update
     getChannelId();
     getCurrentGame();
-    getCurrentStatus();
 
     //Now let's set up polling to Twitch so that we check for new games every minute
-
     var myTimer = setInterval(getCurrentGame, pollTimeSec);
-    var myTimer2 = setInterval(getCurrentStatus, pollTimeSec);
-
 });
 
-
-
-//Update the image in the html, passed the url
+//Update the image in the html
 function updateImage(url) {
-
-    //function created as we may need to do more than update the image.
     //Select the image from the htnl
-    var image = document.getElementById("myImage");
+    var image = document.getElementById('myImage');
 
-    //Check if the url passed in is invalid, this should never be the case but if it is then set the image
-    //to be the default image
+    //Set to default img
     if (url === null | typeof url === "undefined") {
         url = defaultLargeBoxArt;
     }
 
-    //update the image in the html
+    //Update the image in the html
     image.src = url;
 }
 
-//Update the image in the html, passed the url
+//Update the image in the html
 function updateGameName(name) {
 
     var text = document.getElementById("GameName");
@@ -81,26 +62,9 @@ function updateGameName(name) {
 
 }
 
-function updateChannelStatus(status) {
-
-    var title = $('.title');
-
-     if (status !== null && typeof status !== "undefined") {
-        title.html(status);
-    }
-
-}
-
-//Need this section for Kraken v5 API calls to convert names to ids
-
 //v5 needs a Channel Id rather than a channel name
-
 function getChannelId() {
-
-    //If you are testing this in IE you may need to uncomment the line below to allow cross site scripting
-	//$.support.cors = true; a947rrvhm9tvulk4ud8l4flvp6002sh
-
-    //Using ajax here, could have used getJSON but the error handling is awful
+  //Using ajax here, could have used getJSON but the error handling is awful
 	$.ajax({
 	    url: "https://api.twitch.tv/kraken/search/channels?query=" + channel,
 	    dataType: 'json',
@@ -114,22 +78,13 @@ function getChannelId() {
 }
 
 function getChannelIdCallback(data) {
-
-    //We need to set the channel Id rather than the name
+    //Get ID from channel name
     channel = data["channels"][0]["_id"];
     //Now we can get the current game
     getCurrentGame();
-    getCurrentStatus();
 }
 
-
-
 function getCurrentGame() {
-
-    //If you are testing this in IE you may need to uncomment the line below to allow cross site scripting
-	//$.support.cors = true; a947rrvhm9tvulk4ud8l4flvp6002sh
-
-    //Using ajax here, could have used getJSON but the error handling is awful
 	$.ajax({
 	    url: "https://api.twitch.tv/kraken/channels/" + channel,
 	    dataType: 'json',
@@ -141,33 +96,21 @@ function getCurrentGame() {
 	})
 
 }
-
-//This is the callback for getCurrentGame that handles the data once the call to Twitch has completed
-
 function getCurrentGameCallback(data) {
-
-    //if the game name is the same we don't need to make the second call as we already have the url
-    //stored in the global
-
+    //If the game name is the same we don't need to make the second call as we already have it stored
     if (data["game"] === globalGameName) {
         return;
     }
     else {
         globalGameName = data["game"];
     }
-
     //We found a new game so we need to call into Twitch again to get the JSON for the game itself
     getGameImageUrl(globalGameName);
 }
 
 //This function sends a request to twitch for the JSON associated with the game
 //It sets a callback for the data and that is all
-
 function getGameImageUrl(gameName) {
-
-    //If you are testing this in IE you may need to uncomment the line below to allow cross site scripting
-    //$.support.cors = true;
-
     $.ajax({
         url: "https://api.twitch.tv/kraken/search/games?query=" + gameName + "&type=suggest",
         dataType: 'json',
@@ -179,9 +122,6 @@ function getGameImageUrl(gameName) {
     })
 
 }
-
-//This is the callback for getGameImageUrl that handles the data once the call to Twitch has completed
-
 function getGameImageUrlCallback(data) {
 
     //The url for the box art is deep in the JSON hence the strange array here.
@@ -190,57 +130,35 @@ function getGameImageUrlCallback(data) {
     //Now we have a new image we can update the html
     updateImage(globalBoxartUrl);
 
-    //check to see if we are displaying the Game name
+    //Update the game name
+    updateGameName(globalGameName);
 
-    if(displayGameName === true) {
-        updateGameName(globalGameName);
-    }
+    //Update shadow
+    // var wrapperWidth = $('.wrapper').width();
+    // var wrapperHeight = $('.wrapper').height();
+    // var shadowWidth = wrapperWidth + 272;
+    // var shadowHeight = wrapperHeight;
+    var wrapperWidth = $('.wrapper').width();
+    var wrapperHeight = $('.wrapper').height();
+    var shadowWidth = wrapperWidth + 272;
+    var shadowHeight = wrapperHeight;
+    var progressBarWidth = wrapperWidth - 535
+    $('#boxShadow').width(shadowWidth)
+    $('#boxShadow').height(shadowHeight)
+    $('.show-container').width(progressBarWidth);
 }
-
-function getCurrentStatus() {
-
-    //If you are testing this in IE you may need to uncomment the line below to allow cross site scripting
-	//$.support.cors = true; a947rrvhm9tvulk4ud8l4flvp6002sh
-
-    //Using ajax here, could have used getJSON but the error handling is awful
-	$.ajax({
-	    url: "https://api.twitch.tv/kraken/channels/" + channel,
-	    dataType: 'json',
-        headers: {
-            'Client-ID': 'a947rrvhm9tvulk4ud8l4flvp6002sh',
-            'Accept': 'application/vnd.twitchtv.v5+json'
-        },
-        success: getCurrentStatusCallback
-	})
-
-}
-
-//This is the callback for getCurrentGame that handles the data once the call to Twitch has completed
-
-function getCurrentStatusCallback(data) {
-
-    //if the game name is the same we don't need to make the second call as we already have the url
-    //stored in the global
-
-    if (data["status"] === currentChannelStatus) {
-        return;
-    }
-    else {
-        currentChannelStatus = data["status"];
-    }
-
-    if (displayStatus === true) {
-        updateChannelStatus(currentChannelStatus);
-    }
-
-    //We found a new game so we need to call into Twitch again to get the JSON for the game itself
-
-}
-
+var wrapperWidth = $('.wrapper').width();
+var wrapperHeight = $('.wrapper').height();
+var shadowWidth = wrapperWidth + 272;
+var shadowHeight = wrapperHeight;
 
 // Timers
-var newMillis = 180000;
-var progreMills = newMillis/99;
+var newMillis = setMinutes * 60000;
+var progresMills = newMillis / 100;
+
+setTimeout(
+  function()
+  {
 $(document).ready(function(){
  var timer=1;
  var percentageWidth = $('#progressBar').outerWidth()/100;
@@ -254,7 +172,7 @@ $(document).ready(function(){
       return;
     }
     timer++;
-    setTimeout(function(){timerRun();},progreMills);
+    setTimeout(function(){timerRun();},progresMills);
   }
 
   $(document).ready(function(){
@@ -291,3 +209,5 @@ jQuery(function ($) {
   var display = $('#timer');
 startTimer(newMinutes, display);
 });
+
+}, 5000);

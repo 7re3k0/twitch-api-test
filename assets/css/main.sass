@@ -5,12 +5,13 @@
   padding: 0
 
 body
+  font-family: 'Russo One', sans-serif
   width: 1920px
   height: 1080px
   overflow: hidden
   background-repeat: no-repeat
   // background-color: pink
-  background-image: url(../imgs/bg.jpg)
+  // background-image: url(../imgs/bg.jpg)
 
 .boxart
   position: absolute
@@ -20,38 +21,119 @@ body
 
 .wrapper
   display: flex
-  height: 300px
+  height: 270px
   position: absolute
   top: 108px
   left: 271px
-  // background-color: pink
   flex-direction: row
   align-items: center
-  max-width: 1012px
+  background-color: white
 
   .text
-    // display: flex
+    max-width: 1010px
     font-family: 'Russo One', sans-serif
     text-align: left
     color: #0189E9
     font-size: 70px
-    // align-items: center
-    // align-content: flex-start
     text-transform: uppercase
     padding: 30px
-    background-color: lime
 
   #timer
+    width: 220px
     position: relative
-    left: 20px
-    // display: flex
+    padding-left: 20px
+    padding-right:
     font-family: 'Russo One', sans-serif
     font-size: 70px
     text-align: left
-    // align-content: center
-    // align-content: flex-start
-    background-color: lightblue
+
+#boxShadow
+  background-color: transparent
+  position: absolute
+  margin-left: 0
+  margin-right: 200px
+  margin-top: 0
+  margin-bottom: 0
+  left: 56px
+  top: 648px + 108px
+  z-index: -1
+  box-shadow: 0px 0px 70px rgba(0,0,0,0.34)
 
 
-  // &::after
-  //   content: "15:00"
+h1
+  background-color: #242834
+  color: white
+  text-transform: uppercase
+  position: absolute
+  left: 56px + 272px
+  top: 648px
+  padding: 35px 20px
+
+.show-container
+  position: absolute
+  top: 694px
+  left: 860px
+  width: 20px
+.rounded
+  height: 100%
+  // border-radius: 4px
+  overflow: hidden
+  transform: translateZ(0)
+.progress-container
+  position: relative
+.progress
+  position: relative
+  width: 100%
+  height: 50px
+  background-color: #e7edf4
+  // border-radius: 4px
+  box-shadow: 0px 2px 5px 0px rgba(115,115,115,1)
+  .progress-bar
+    position: relative
+    height: 100%
+    // border-radius: 4px
+    background-size: 10px 10px
+    background-color: #242834
+    box-sizing: border-box
+    animation-name: timer-flash,animate-stripes
+    animation-delay: 1680s,0s
+    animation-duration: 1.8s,3s
+    animation-iteration-count:  infinite,infinite
+    animation-timing-function: linear
+    transition: width 1s ease
+    box-shadow: 1px 0px 3px 0px rgba(176,174,176,1)
+  .progress-number
+      position: absolute
+      left: 0
+      top: 0
+      transition: transform 1s ease
+      &::before
+        content: ""
+        position: absolute
+        top: -10px
+        left: 0
+        transform: translateX(-50%)
+        border-top: 5px solid #0189E9
+        border-left: 5px solid transparent
+        border-right: 5px solid transparent
+      &::after
+        content: attr(aria-valuenow)
+        position: absolute
+        left: 0
+        top: -10px
+        transform: translate(-50%, -100%)
+        padding: 4px 10px
+        color: #fff
+        font-size: 24px
+        font-weight: 300
+        background-color: #0189E9
+        // border-radius: 3px
+        padding-left: 13px
+.animatedstripes
+  background: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent)
+  background-size: 30px 30px
+@keyframes animate-stripes
+  0%
+    background-position: 0 0
+  100%
+    background-position: 60px 0
