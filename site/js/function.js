@@ -3,7 +3,7 @@
 //Update this value to reflect your own channel name
 var channel = '7re3k0';
 //Set the timer in minutes
-var setMinutes = 1
+var setMinutes = 3
 
 //Box art size
 var size = 'large';//272px x 380px
@@ -16,7 +16,6 @@ var pollTimeSec = 60000;//1 minute
 var globalGameName;
 var globalBoxartUrl;
 var defaultLargeBoxArt = 'http://static-cdn.jtvnw.net/ttv-static/404_boxart-272x380.jpg';
-
 
 //This code runs when the DOM objects are initialised as defined in the jQuery documentation
 $(document).ready(function start() {
@@ -133,24 +132,14 @@ function getGameImageUrlCallback(data) {
     //Update the game name
     updateGameName(globalGameName);
 
-    //Update shadow
-    // var wrapperWidth = $('.wrapper').width();
-    // var wrapperHeight = $('.wrapper').height();
-    // var shadowWidth = wrapperWidth + 272;
-    // var shadowHeight = wrapperHeight;
+
     var wrapperWidth = $('.wrapper').width();
     var wrapperHeight = $('.wrapper').height();
-    var shadowWidth = wrapperWidth + 272;
-    var shadowHeight = wrapperHeight;
-    var progressBarWidth = wrapperWidth - 535
-    $('#boxShadow').width(shadowWidth)
-    $('#boxShadow').height(shadowHeight)
+    var progressBarWidth = wrapperWidth
     $('.show-container').width(progressBarWidth);
 }
 var wrapperWidth = $('.wrapper').width();
 var wrapperHeight = $('.wrapper').height();
-var shadowWidth = wrapperWidth + 272;
-var shadowHeight = wrapperHeight;
 
 // Timers
 var newMillis = setMinutes * 60000;
@@ -176,7 +165,6 @@ $(document).ready(function(){
   }
 
   $(document).ready(function(){
-    $(this).html("loading");
     timerRun();
   });
 });

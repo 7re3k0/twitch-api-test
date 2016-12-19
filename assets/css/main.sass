@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Russo+One&subset=cyrillic')
-
+$positionAlign: 400px
+$barWidth: 10px
 *
   margin: 0
   padding: 0
@@ -10,7 +11,7 @@ body
   height: 1080px
   overflow: hidden
   background-repeat: no-repeat
-  // background-color: pink
+  background-color: pink
   // background-image: url(../imgs/bg.jpg)
 
 .boxart
@@ -21,43 +22,32 @@ body
 
 .wrapper
   display: flex
-  height: 270px
+  height: 190px
   position: absolute
-  top: 108px
-  left: 271px
+  top: $positionAlign
   flex-direction: row
   align-items: center
-  background-color: white
+  background-color: #242834
+  padding-bottom: $barWidth
 
   .text
     max-width: 1010px
     font-family: 'Russo One', sans-serif
     text-align: left
-    color: #0189E9
-    font-size: 70px
+    color: white
+    font-size: 48px
     text-transform: uppercase
-    padding: 30px
+    padding-left: 15px
 
   #timer
     width: 220px
+    color: #0189E9
     position: relative
     padding-left: 20px
-    padding-right:
+    padding-top: $barWidth
     font-family: 'Russo One', sans-serif
     font-size: 70px
     text-align: left
-
-#boxShadow
-  background-color: transparent
-  position: absolute
-  margin-left: 0
-  margin-right: 200px
-  margin-top: 0
-  margin-bottom: 0
-  left: 56px
-  top: 648px + 108px
-  z-index: -1
-  box-shadow: 0px 0px 70px rgba(0,0,0,0.34)
 
 
 h1
@@ -71,12 +61,10 @@ h1
 
 .show-container
   position: absolute
-  top: 694px
-  left: 860px
+  top: $positionAlign + 180px + $barWidth
   width: 20px
 .rounded
   height: 100%
-  // border-radius: 4px
   overflow: hidden
   transform: translateZ(0)
 .progress-container
@@ -84,56 +72,12 @@ h1
 .progress
   position: relative
   width: 100%
-  height: 50px
-  background-color: #e7edf4
-  // border-radius: 4px
-  box-shadow: 0px 2px 5px 0px rgba(115,115,115,1)
+  height: $barWidth
+  background-color: #242834
   .progress-bar
     position: relative
     height: 100%
-    // border-radius: 4px
     background-size: 10px 10px
-    background-color: #242834
+    background-color: #0189E9
     box-sizing: border-box
-    animation-name: timer-flash,animate-stripes
-    animation-delay: 1680s,0s
-    animation-duration: 1.8s,3s
-    animation-iteration-count:  infinite,infinite
-    animation-timing-function: linear
-    transition: width 1s ease
-    box-shadow: 1px 0px 3px 0px rgba(176,174,176,1)
-  .progress-number
-      position: absolute
-      left: 0
-      top: 0
-      transition: transform 1s ease
-      &::before
-        content: ""
-        position: absolute
-        top: -10px
-        left: 0
-        transform: translateX(-50%)
-        border-top: 5px solid #0189E9
-        border-left: 5px solid transparent
-        border-right: 5px solid transparent
-      &::after
-        content: attr(aria-valuenow)
-        position: absolute
-        left: 0
-        top: -10px
-        transform: translate(-50%, -100%)
-        padding: 4px 10px
-        color: #fff
-        font-size: 24px
-        font-weight: 300
-        background-color: #0189E9
-        // border-radius: 3px
-        padding-left: 13px
-.animatedstripes
-  background: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent)
-  background-size: 30px 30px
-@keyframes animate-stripes
-  0%
-    background-position: 0 0
-  100%
-    background-position: 60px 0
+    transition: width 1s linear
