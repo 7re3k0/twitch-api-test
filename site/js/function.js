@@ -2,14 +2,15 @@
 
 //Update this value to reflect your own channel name
 var channel = '7re3k0';
+
 //Set the timer in minutes
-var setMinutes = 1
+var setMinutes = 3
 
 //Box art size
-var size = 'large';//272px x 380px
+var size = 'large'; //272px x 380px
 
 //How often should we poll to check if the game has changed
-var pollTimeSec = 60000;//1 minute
+var pollTimeSec = 60000; //1 minute
 
 //Do not change anything below this line unless you are familiar with javascript and jQuery
 //Some globals that track what urls and game we are using as well as a default image.
@@ -55,7 +56,7 @@ function updateGameName(name) {
 
     var text = document.getElementById("GameName");
 
-     if (name !== null && typeof name !== "undefined") {
+    if (name !== null && typeof name !== "undefined") {
         text.innerHTML = name;
     }
 
@@ -63,16 +64,16 @@ function updateGameName(name) {
 
 //v5 needs a Channel Id rather than a channel name
 function getChannelId() {
-  //Using ajax here, could have used getJSON but the error handling is awful
-	$.ajax({
-	    url: "https://api.twitch.tv/kraken/search/channels?query=" + channel,
-	    dataType: 'json',
+    //Using ajax here, could have used getJSON but the error handling is awful
+    $.ajax({
+        url: "https://api.twitch.tv/kraken/search/channels?query=" + channel,
+        dataType: 'json',
         headers: {
             'Client-ID': 'a947rrvhm9tvulk4ud8l4flvp6002sh',
             'Accept': 'application/vnd.twitchtv.v5+json'
         },
         success: getChannelIdCallback
-	})
+    })
 
 }
 
@@ -84,23 +85,23 @@ function getChannelIdCallback(data) {
 }
 
 function getCurrentGame() {
-	$.ajax({
-	    url: "https://api.twitch.tv/kraken/channels/" + channel,
-	    dataType: 'json',
+    $.ajax({
+        url: "https://api.twitch.tv/kraken/channels/" + channel,
+        dataType: 'json',
         headers: {
             'Client-ID': 'a947rrvhm9tvulk4ud8l4flvp6002sh',
             'Accept': 'application/vnd.twitchtv.v5+json'
         },
         success: getCurrentGameCallback
-	})
+    })
 
 }
+
 function getCurrentGameCallback(data) {
     //If the game name is the same we don't need to make the second call as we already have it stored
     if (data["game"] === globalGameName) {
         return;
-    }
-    else {
+    } else {
         globalGameName = data["game"];
     }
     //We found a new game so we need to call into Twitch again to get the JSON for the game itself
@@ -121,6 +122,7 @@ function getGameImageUrl(gameName) {
     })
 
 }
+
 function getGameImageUrlCallback(data) {
 
     //The url for the box art is deep in the JSON hence the strange array here.
@@ -133,69 +135,72 @@ function getGameImageUrlCallback(data) {
     updateGameName(globalGameName);
 
 
-    var wrapperWidth = $('.wrapper').width();
-    var wrapperHeight = $('.wrapper').height();
+    var wrapperWidth     = $('.wrapper').width();
+    var wrapperHeight    = $('.wrapper').height();
     var progressBarWidth = wrapperWidth
     $('.show-container').width(progressBarWidth);
 }
-var wrapperWidth = $('.wrapper').width();
+var wrapperWidth  = $('.wrapper').width();
 var wrapperHeight = $('.wrapper').height();
 
 // Timers
-var newMillis = setMinutes * 60000;
+var newMillis    = setMinutes * 60000;
 var progresMills = newMillis / 100;
 
 setTimeout(
-  function()
-  {
-$(document).ready(function(){
- var timer=1;
- var percentageWidth = $('#progressBar').outerWidth()/100;
-  function timerRun(){
-    $('#progressBar .progress-bar').css("width", timer + "%").attr("aria-valuenow", timer);
+    function() {
+        $(document).ready(function() {
+            var timer = 1;
+            var percentageWidth = $('#progressBar').outerWidth() / 100;
 
-    $('#progressBar .progress-number').css("-webkit-transform", "translateX(" + percentageWidth*timer + "px)").attr("aria-valuenow", timer + '%');
+            function timerRun() {
+                $('#progressBar .progress-bar').css("width", timer + "%").attr("aria-valuenow", timer);
 
-    if(timer >= 100){
-      $('#progressBar .progress-bar').css("width","100%");
-      return;
-    }
-    timer++;
-    setTimeout(function(){timerRun();},progresMills);
-  }
+                $('#progressBar .progress-number').css("-webkit-transform", "translateX(" + percentageWidth * timer + "px)").attr("aria-valuenow", timer + '%');
 
-  $(document).ready(function(){
-    timerRun();
-  });
-});
+                if (timer >= 100) {
+                    $('#progressBar .progress-bar').css("width", "100%");
+                    return;
+                }
+                timer++;
+                setTimeout(function() {
+                    timerRun();
+                }, progresMills);
+            }
+
+            $(document).ready(function() {
+                timerRun();
+            });
+        });
 
 
-function startTimer(duration, display) {
-var timer = duration, minutes, seconds;
-setInterval(function () {
-  minutes = parseInt(timer / 60, 10)
-  seconds = parseInt(timer % 60, 10);
+        function startTimer(duration, display) {
+            var timer = duration,
+                minutes, seconds;
+            setInterval(function() {
+                minutes = parseInt(timer / 60, 10)
+                seconds = parseInt(timer % 60, 10);
 
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-  seconds = seconds < 10 ? "0" + seconds : seconds;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
 
-  display.text(minutes + ":" + seconds);
-  if (--timer < 0) {
-              timer = 0;
-          }
+                display.text(minutes + ":" + seconds);
+                if (--timer < 0) {
+                    timer = 0;
+                }
 
-}, 1000);
-}
+            }, 1000);
+        }
 
-function millisToMinutes(millis) {
-var millisminutes = Math.floor(millis / 60000);
-return millisminutes;
-}
+        function millisToMinutes(millis) {
+            var millisminutes = Math.floor(millis / 60000);
+            return millisminutes;
+        }
 
-var newMinutes = millisToMinutes(newMillis) * 60
-jQuery(function ($) {
-  var display = $('#timer');
-startTimer(newMinutes, display);
-});
+        var newMinutes = millisToMinutes(newMillis) * 60
+        jQuery(function($) {
+            var display = $('#timer');
+            startTimer(newMinutes, display);
+        });
 
-}, 5000);
+    }, 5000);

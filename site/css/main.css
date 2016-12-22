@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Russo+One&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:700&subset=cyrillic");
 * {
   margin: 0;
   padding: 0; }
 
 body {
-  font-family: 'Russo One', sans-serif;
+  font-family: "Open Sans", sans-serif;
   width: 1920px;
   height: 1080px;
   overflow: hidden;
@@ -38,7 +38,7 @@ body {
   padding-bottom: 10px; }
   .wrapper .text {
     max-width: 1010px;
-    font-family: 'Russo One', sans-serif;
+    font-family: "Open Sans", sans-serif;
     text-align: left;
     color: white;
     font-size: 48px;
@@ -46,13 +46,13 @@ body {
     padding-left: 15px;
     padding-top: 10px; }
   .wrapper #timer {
-    width: 220px;
+    width: 250px;
     color: #0189E9;
     position: relative;
-    padding-left: 20px;
+    padding-left: 40px;
     padding-top: 10px;
-    font-family: 'Russo One', sans-serif;
-    font-size: 70px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 72px;
     text-align: left; }
 
 h1 {
