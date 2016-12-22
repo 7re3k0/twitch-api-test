@@ -3,7 +3,7 @@
 //Update this value to reflect your own channel name
 var channel = '7re3k0';
 //Set the timer in minutes
-var setMinutes = 3
+var setMinutes = 1
 
 //Box art size
 var size = 'large';//272px x 380px

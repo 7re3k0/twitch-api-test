@@ -1,10 +1,7 @@
 doctype HTML
 HTML
   head
-    title BoxArt
-    meta(charset='utf-8')
-    link(rel='stylesheet', href='./css/main.css')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    include includes/header.pug
   body
     .boxart
       img#myImage(src='')
@@ -17,5 +14,4 @@ HTML
           .progress-bar.animatedstripes(aria-valuenow='0' aria-valuemin='0' aria-valuemax='100' style='width:0;')
 
     h1 започваме след малко с :
-
   script(src='./js/function.js')

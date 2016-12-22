@@ -48,6 +48,7 @@ gulp.task('browser-sync', ['sass', 'pug', 'js'], function() {
 gulp.task('watch', function () {
   gulp.watch('./assets/css/*.sass', ['sass']);
   gulp.watch('./_pugfiles/*.pug', ['pug']);
+  gulp.watch('./_pugfiles/*/*.pug', ['pug']);
   gulp.watch('./site/*.html').on('change', reload);
   gulp.watch('./assets/js/*.js', ['js']);
   gulp.watch('./site/js/*.js').on('change', reload);
