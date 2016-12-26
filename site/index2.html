@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/javascript">
+    $(document).ready(function () {
+    setInterval(function(){// load text file using jquery ajax
+        $('#user').load('most_recent_follower.txt');  // load text data
+    }, 1000);
+});
+$(document).ready(function () {
+setInterval(function(){// load text file using jquery ajax
+    $('#tipper').load('all_time_top_donator_temp.txt');
+    // load text data
+}, 1000);
+});
+    </script>
+		<title>Dynamic Overlay</title>
+    <style media="screen">
+    @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+    @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrapper {
+      display: flex;
+      background: rgba(0, 56, 95, 0.2);
+      box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4);
+      align-items: center;
+      border-bottom: 5px solid #0189E9;
+      color: white;
+      box-sizing: border-box;
+    }
+    .wrapper:first-of-type {
+      margin-right: 40px;
+    }
+    .wrapper .before {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      color: #0189E9;
+      padding-left: 16px;
+    }
+    .wrapper .before i {
+      display: flex;
+      box-sizing: border-box;
+      align-items: center;
+      font-size: 24px;
+      padding-right: 8px;
+    }
+    .wrapper .before p {
+      display: flex;
+      box-sizing: border-box;
+      align-items: center;
+      align-self: center;
+      font-size: 16px;
+      font-family: "Montserrat";
+      line-height: 15px;
+      height: 25px;
+      border-right: 2px solid #0189E9;
+      border-radius: 2px;
+      padding-right: 16px;
+    }
+    .wrapper .after {
+      font-size: 24px;
+      font-family: "Montserrat";
+      padding: 16px;
+      box-sizing: border-box;
+      text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.5);
+    }
+    .wrapper .after #tipper i {
+      margin-left: 5px;
+      font-size: 22px;
+    }
+
+    .grid {
+      display: flex;
+      flex-direction: row;
+      position: absolute;
+      left: 200px;
+      top: 20px;
+    }
+
+    </style>
+	</head>
+	<body>
+
+<div class="grid">
+  <div class="wrapper" id="first">
+    <div class="before"><i class="fa fa-heart"> </i>
+      <p>Newest <br> Follower</p>
+    </div>
+    <div class="after">
+      <div id="user">user</div>
+    </div>
+  </div>
+  <div class="wrapper" id="second">
+    <div class="before"><i class="fa fa-usd"> </i>
+      <p>Top <br> Tipper</p>
+    </div>
+    <div class="after">
+      <div id="tipper">tipper</div>
+    </div>
+  </div>
+</div>
+	</body>
+</html>
