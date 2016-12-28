@@ -5,11 +5,11 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  width: 1920px;
-  height: 1080px;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-color: pink; }
+  overflow: hidden; }
+  body .background {
+    width: 1920px;
+    height: 1080px;
+    background: pink; }
 
 .boxart {
   position: absolute;
@@ -24,6 +24,7 @@ body {
   display: flex;
   height: 190px;
   position: absolute;
+  left: 40px;
   top: 400px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -67,7 +68,8 @@ h1 {
 .show-container {
   position: absolute;
   top: 590px;
-  width: 20px; }
+  width: 20px;
+  left: 40px; }
 
 .rounded {
   height: 100%;
@@ -90,5 +92,5 @@ h1 {
     background-color: #0189E9;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    -webkit-transition: width 1s linear;
-    transition: width 1s linear; }
+    -webkit-transition: width 3s ease-in;
+    transition: width 3s ease-in; }
