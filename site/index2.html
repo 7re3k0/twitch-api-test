@@ -29,7 +29,7 @@ setInterval(function(){// load text file using jquery ajax
       background: rgba(0, 56, 95, 0.2);
       box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4);
       align-items: center;
-      border-bottom: 2px solid #0189E9;
+      border-bottom: 3px solid #0189E9;
       color: white;
       box-sizing: border-box;
     }
@@ -92,8 +92,6 @@ setInterval(function(){// load text file using jquery ajax
     </style>
 	</head>
 	<body>
-<!-- <div class="bgtemp"> -->
-
 <div class="grid">
   <div class="wrapper" id="first">
     <div class="before"><i class="fa fa-heart"> </i>
@@ -113,10 +111,9 @@ setInterval(function(){// load text file using jquery ajax
   </div>
 </div>
 
-<!-- </div> -->
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
   <script>
+  $(document).ready(function(){
     var first = $('#first'),
     second = $('#second'),
     tl = new TimelineLite();
@@ -124,7 +121,7 @@ setInterval(function(){// load text file using jquery ajax
     tl
       .from(first, 0.3, {y: +30, autoAlpha:0, ease:Power1.easeOut, delay:1.5}, '-=0.15')
       .from(second, 0.3, {y: +30, autoAlpha:0, ease:Power1.easeOut}, '-=0.15');
+  });
   </script>
-
 	</body>
 </html>

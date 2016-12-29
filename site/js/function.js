@@ -135,13 +135,13 @@ function getGameImageUrlCallback(data) {
     updateGameName(globalGameName);
 
 
-    var wrapperWidth     = $('.wrapper').width();
-    var wrapperHeight    = $('.wrapper').height();
-    var progressBarWidth = wrapperWidth
-    $('.show-container').width(progressBarWidth);
+    // var wrapperWidth     = $('.wrapper').width();
+    // var wrapperHeight    = $('.wrapper').height();
+    // var progressBarWidth = wrapperWidth
+    // $('.show-container').width(progressBarWidth);
 }
-var wrapperWidth  = $('.wrapper').width();
-var wrapperHeight = $('.wrapper').height();
+// var wrapperWidth  = $('.wrapper').width();
+// var wrapperHeight = $('.wrapper').height();
 
 // Timers
 var newMillis    = setMinutes * 60000;

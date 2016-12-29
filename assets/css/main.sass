@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:700&subset=cyrillic')
-$positionAlign: 400px
-$barWidth: 10px
-$leftAlign: 40px
-$mainFont: 'Open Sans', sans-serif
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700')
+$mainColor: #0189E9
+$mainFont: 'Montserrat', sans-serif
 *
   margin: 0
   padding: 0
@@ -10,65 +9,79 @@ $mainFont: 'Open Sans', sans-serif
 body
   font-family: $mainFont
   overflow: hidden
-  // background-image: url(../imgs/bg.jpg)
-  .background
-    width: 1920px
-    height: 1080px
-    background: pink
-    // box-shadow: 0px 15px 40px 0px rgba(0,0,0,0.2)
+  font-weight: bold
+  // .bg
+  //     background: pink
+  //     width: 1920px
+  //     height: 1080px
+  .grid
+    display: flex
+    flex-direction: row
+    align-items: flex-end
+    position: absolute
+    left: 100px
+    top: 800px
+
 
 .boxart
-  position: absolute
-  left: 56px
-  top: 648px
-  width: 100%
+  margin-bottom: -4px
+  img
+    height: 250px
+    border-bottom: 5px solid $mainColor
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4)
+  h1
+    font-weight: bold
+    font-size: 24px
+    text-align: center
+    color: white
+    font-family: 'Open Sans', sans-serif
+    padding-bottom: 8px
 
 .wrapper
   display: flex
-  height: 190px
-  position: absolute
-  left: $leftAlign
-  top: $positionAlign
   flex-direction: row
   align-items: center
-  background-color: #242834
-  padding-bottom: $barWidth
+  background-color: rgba(0, 56, 95, 0.5)
+  line-height: 40px
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4)
 
   .text
     max-width: 1010px
     font-family: $mainFont
     text-align: left
-    color: white
+    color: $mainColor
     font-size: 48px
     text-transform: uppercase
-    padding-left: 15px
-    padding-top: 10px
+    padding: 32px
+
+  .bar
+    background-color: $mainColor
+    width: 3px
+    height: 48px
+    display: flex
+    margin-right: 32px
+
+
+
 
   #timer
-    width: 250px
-    color: #0189E9
+    width: 172px
+    color: white
     position: relative
-    padding-left: 40px
-    padding-top: $barWidth
     font-family: $mainFont
-    font-size: 72px
+    font-size: 48px
     text-align: left
 
 
-h1
-  background-color: #242834
-  color: white
-  text-transform: uppercase
-  position: absolute
-  left: 56px + 272px
-  top: 648px
-  padding: 35px 20px
-
+.container
+  display: flex
+  flex-direction: column
+  align-items: flex-end
 .show-container
-  position: absolute
-  top: $positionAlign + 180px + $barWidth
-  width: 20px
-  left: $leftAlign
+  display: flex
+  width: 100%
+  align-self: flex-end
+
 .rounded
   height: 100%
   overflow: hidden
@@ -78,12 +91,11 @@ h1
 .progress
   position: relative
   width: 100%
-  height: $barWidth
-  background-color: #242834
+  height: 5px
+  background-color: rgba(0, 56, 95, 0.5)
   .progress-bar
     position: relative
     height: 100%
-    background-size: 10px 10px
-    background-color: #0189E9
+    background-color: $mainColor
     box-sizing: border-box
     transition: width 3s ease-in-out
