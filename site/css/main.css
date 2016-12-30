@@ -1,5 +1,5 @@
-@import url("../css/Open-Sans-Bold.css");
-@import url("../css/Montserrat-Bold.css");
+@import url("Open-Sans-Bold.css");
+@import url("Montserrat-Bold.css");
 * {
   margin: 0;
   padding: 0; }
@@ -7,6 +7,10 @@
 body {
   font-family: "montserratbold", sans-serif;
   overflow: hidden; }
+  body .bg {
+    background: pink;
+    width: 1920px;
+    height: 1080px; }
   body .grid {
     display: -webkit-box;
     display: -webkit-flex;
@@ -55,7 +59,8 @@ body {
   -ms-flex-align: center;
   align-items: center;
   background-color: rgba(0, 56, 95, 0.5);
-  line-height: 40px; }
+  line-height: 40px;
+  padding-top: 10px; }
   .wrapper .text {
     max-width: 1010px;
     font-family: "montserratbold", sans-serif;
