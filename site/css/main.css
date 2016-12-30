@@ -7,10 +7,6 @@
 body {
   font-family: "montserratbold", sans-serif;
   overflow: hidden; }
-  body .bg {
-    background: pink;
-    width: 1920px;
-    height: 1080px; }
   body .grid {
     display: -webkit-box;
     display: -webkit-flex;
@@ -135,3 +131,50 @@ body {
     box-sizing: border-box;
     -webkit-transition: width 3s ease-in-out;
     transition: width 3s ease-in-out; }
+
+.words {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'open_sansbold', sans-serif;
+  font-size: 72px;
+  color: white; }
+
+.typeGrid {
+  background-color: pink;
+  width: 1920px;
+  height: 1080px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.typeWrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  max-width: 1000px; }
