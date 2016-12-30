@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:700&subset=cyrillic')
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700')
+@import url('../css/Open-Sans-Bold.css')
+@import url('../css/Montserrat-Bold.css')
 $mainColor: #0189E9
-$mainFont: 'Montserrat', sans-serif
+$mainFont: 'montserratbold', sans-serif
 *
   margin: 0
   padding: 0
@@ -9,7 +9,6 @@ $mainFont: 'Montserrat', sans-serif
 body
   font-family: $mainFont
   overflow: hidden
-  font-weight: bold
   // .bg
   //     background: pink
   //     width: 1920px
@@ -19,8 +18,8 @@ body
     flex-direction: row
     align-items: flex-end
     position: absolute
-    left: 100px
-    top: 800px
+    left: 60px
+    top: 715px
 
 
 .boxart
@@ -34,7 +33,7 @@ body
     font-size: 24px
     text-align: center
     color: white
-    font-family: 'Open Sans', sans-serif
+    font-family: 'open_sansbold', sans-serif
     padding-bottom: 8px
 
 .wrapper
@@ -43,7 +42,6 @@ body
   align-items: center
   background-color: rgba(0, 56, 95, 0.5)
   line-height: 40px
-  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4)
 
   .text
     max-width: 1010px
@@ -77,6 +75,7 @@ body
   display: flex
   flex-direction: column
   align-items: flex-end
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4)
 .show-container
   display: flex
   width: 100%
