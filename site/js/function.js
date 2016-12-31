@@ -203,7 +203,7 @@ setTimeout(
             startTimer(newMinutes, display);
         });
 
-    }, 5000);
+    }, 2000);
 
 
 //Moving text items
@@ -213,17 +213,17 @@ var word1 = $('#word1'),
     word2 = $('#word2'),
     word3 = $('#word3'),
     word4 = $('#word4'),
-    tl    = new TimelineMax({repeat:-1});
+    tl    = new TimelineMax({repeat:-1, yoyo:false, repeatDelay:0});
 
     tl
-      .from(word1, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut, delay:10}, '-=0.15')
-      .from(word2, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut}, '-=0.15')
-      .from(word3, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut}, '-=0.15')
-      .from(word4, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut}, '-=0.15')
-      .to(word1, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut, delay:10}, '-=0.15')
-      .to(word2, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut}, '-=0.15')
-      .to(word3, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut}, '-=0.15')
-      .to(word4, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut}, '-=0.15');
+      .from(word1, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut, delay: 3}, '-=0.2')
+      .from(word2, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut}, '-=0.2')
+      .from(word3, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut}, '-=0.2')
+      .from(word4, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut}, '-=0.2')
+      .to(word1, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut, delay:20}, '-=0.2')
+      .to(word2, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut}, '-=0.2')
+      .to(word3, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut}, '-=0.2')
+      .to(word4, 0.3, {y:50, autoAlpha:0, ease:Power1.easeOut}, '-=0.2');
 
 
 

@@ -2,6 +2,7 @@
 @import url('Montserrat-Bold.css')
 $mainColor: #0189E9
 $mainFont: 'montserratbold', sans-serif
+$bgColor: rgba(255, 255, 255, 0.3)
 *
   margin: 0
   padding: 0
@@ -26,8 +27,8 @@ body
   margin-bottom: -4px
   img
     height: 250px
-    border-bottom: 5px solid $mainColor
-    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4)
+    border-bottom: 10px solid $mainColor
+    // box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.4)
   h1
     font-weight: bold
     font-size: 24px
@@ -40,7 +41,7 @@ body
   display: flex
   flex-direction: row
   align-items: center
-  background-color: rgba(0, 56, 95, 0.5)
+  background-color: $bgColor
   line-height: 40px
   padding-top: 10px
 
@@ -73,7 +74,7 @@ body
   display: flex
   flex-direction: column
   align-items: flex-end
-  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.4)
+  // box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.4)
 .show-container
   display: flex
   width: 100%
@@ -88,8 +89,8 @@ body
 .progress
   position: relative
   width: 100%
-  height: 5px
-  background-color: rgba(0, 56, 95, 0.5)
+  height: 10px
+  background-color: $bgColor
   .progress-bar
     position: relative
     height: 100%
@@ -106,7 +107,7 @@ body
   color: white
 
 .typeGrid
-  background-color: pink
+  // background-color: pink
   width: 1920px
   height: 1080px
   display: flex
