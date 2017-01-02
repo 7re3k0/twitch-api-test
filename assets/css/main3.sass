@@ -1,25 +1,67 @@
 @import url('Open-Sans-Bold.css')
-
+@import url('Montserrat-Bold.css')
+$mainColor: #0189E9
+$mainFont: 'montserratbold', sans-serif
+$secondFont: 'open_sansbold', sans-serif
+$bgColor: rgba(0, 56, 95, 0.5)
 *
-  padding: 0
   margin: 0
+  padding: 0
 
-.words
-  display: flex
-  font-family: 'open_sansbold', sans-serif
-  font-size: 72px
-
-.typeGrid
-  background-color: pink
+body
+  font-family: $mainFont
+  overflow: hidden
   width: 1920px
   height: 1080px
+  .bg
+    width: 1920px
+    height: 1080px
+    background-image: url('../Break.png')
+
+.grid
   display: flex
-  align-items: center
-  justify-content: center
-.typeWrapper
+  flex-direction: row
+  align-items: flex-end
+  position: absolute
+  right: 30px
+  bottom: 70px
+
+
+.boxart
   display: flex
+  position: absolute
+  right: 40px
+  bottom: -20px
+  box-shadow: 0px 15px 20px 0px rgba(0,0,0,0.5)
+  img
+    height: 250px
+    border: 2px solid $mainColor
+
+.wrapper
+  display: flex
+  flex-direction: row
   align-items: center
-  align-self: center
-  justify-content: center
-  flex-wrap: wrap
-  max-width: 1000px
+  background-color: $bgColor
+  line-height: 40px
+  border-bottom: 15px solid $mainColor
+  box-shadow: 0px 15px 20px 0px rgba(0,0,0,0.5)
+
+  h1
+    position: absolute
+    top: 12px
+    left: 30px
+    font-size: 24px
+    color: $mainColor
+    font-family: $secondFont
+
+  .text
+    max-width: 1010px
+    font-family: $mainFont
+    text-align: left
+    color: white
+    font-size: 42px
+    text-transform: uppercase
+    padding-left: 32px
+    padding-top: 56px
+    padding-bottom: 16px
+    padding-right: 250px
